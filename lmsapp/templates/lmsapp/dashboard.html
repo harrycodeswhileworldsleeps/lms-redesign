@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY Dashboard</title>
+
+  <!--Icons-->
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+  <!--favicon CDN-->
+  <link rel="icon" href="https://ik.imagekit.io/6hbheieoz/image_bp6nw_BAx.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650704927178">
+
+  <!--Chatbot CDN-->
+  <script>(function(w, d) { w.CollectId = "628340dcfaa7943a0bbb5404"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+
+  <style>
+      *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #2b2b2b;
+}
+.navbar{
+    padding: 10px;
+    background-color: #fff;
+    font-size: 17px;
+    transition: 0.5s;
+    height: 100px;
+}
+.navbar img{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+.navbar:hover {
+    background-color: #2b639b;
+}
+.navbar:hover #a1{
+    color: #FFF;
+}
+
+.navbar nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.navbar nav ul li #a1{
+    text-decoration: none;
+    color: #005ebc;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.navbar nav ul li #a1:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+.bxs-user{
+    color: #005ebc;
+    font-size: 20px;
+    margin-right: 5px;  
+}
+.navbar:hover .bxs-user{
+    color: #fff;
+}
+.dropdown {
+    overflow: hidden;
+    font-size: 17px;
+  }
+.navbar:hover .dropbtn{
+    color: #fff;
+}
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: #005ebc;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin-right: 80px;
+  }
+  
+ .dropdown:hover .dropbtn {
+    background-color: rgba(0,0,0,0.2);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFF;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    float: left;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: #0051a1;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .bxs-book, .bxs-user-rectangle, .bxs-graduation, .bx-log-out{
+    font-size: 18px;
+  }
+.card{
+   position: absolute;
+   top: 15%;
+   left: 25%;
+   background-color: rgb(227, 227, 227);
+   opacity: 0;
+   visibility: hidden;
+   transition: 0.5s;
+ }
+ #click:checked ~ .card{
+   opacity: 1;
+   visibility: visible;
+ }
+  .batch_name{
+    background-color: #2b639b;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    border-bottom: 2px ridge #fff;
+    border-top: 2px ridge #fff;
+  }
+  .click-me{
+    display: block;
+  }
+  #click{
+    display: none;
+  }
+  .card{
+    padding: 20px;
+    width: 650px;
+    height: 500px;
+    text-align: center;
+    background-color: #fff;
+    z-index: 10;
+  }
+  .profile{
+    padding: 20px;
+    color: black;
+    border: 2px ridge #3a87ad;
+    background-color: #FFF;
+  }
+  .profile h2{
+    font-size: 30px;
+    width: 50%;
+    margin-left: 200px;
+    margin-top: 60px;
+  }
+ 
+  .profile:hover{
+    color: black;
+  }
+  .attendance-bar{
+    margin-top: 20px;
+    width: 160px;
+    height: 160px;
+    position: relative;
+    background-color: rgba(0, 0, 0,0.1);
+    clip-path: circle(50%);
+    overflow: hidden;
+    margin-top: -90px;
+  }
+  .outer{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+  }
+  .inner{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                -0.5px -0.5px 0px rgba(255,255,255,1),
+                0.5px 0.5px 0px rgba(0,0,0,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.05);
+  }
+  #atten_number{
+    font-weight: 600;
+    color: #555;
+  }
+  circle{
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anim 10s linear forwards;
+  }
+  svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+
+@keyframes anim {
+  
+  100%{
+    stroke-dashoffset: 165.2;
+  }
+}
+  .marks-wrapper{
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px ridge #3a87ad;
+    color: black;
+    height: 230px;
+  }
+  .marks-wrapper:hover {
+    color: black;
+  }
+  .marks-wrapper h1{
+    margin-bottom: 20px;
+  }
+  .marks-wrapper p{
+    margin-top: 5px;
+  }
+
+
+
+.module-wrapper{
+  padding: 20px;
+  color: #fff;
+}
+
+.bxs-book-bookmark, .bxs-file-blank, .bx-calendar, .bx-git-branch, .bx-stats{
+  color: #FFF;
+  font-size: 19px;
+  margin-right: 5px;
+}
+
+
+.bxs-book-bookmark:hover{
+  color: #FFF;
+}
+
+.click1-me{
+  display: block;
+}
+#click1{
+  display: none;
+}
+.module-content{
+  margin-top: 10px;
+  padding: 10px;
+  width: 1260px;
+  margin-left: -20px;
+  height: 800px;
+  text-align: center;
+  visibility: visible;
+  background-color: #336699;
+  position: absolute;
+}
+
+#click1:checked ~ .module-content{
+  visibility: visible;
+}
+.container{
+  display: grid;
+  position: relative;
+  height: 800px;
+  width: 1240px;
+  z-index: 0;
+}
+.row{
+  display: flex;
+  position: relative;
+  height: 800px;
+  width: 1240px;
+}
+.our-team {
+  padding: 30px 0 40px;
+  margin-bottom: 30px;
+  background-color: #f7f5ec;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  width: 300px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 5px ridge whitesmoke;
+}
+
+.our-team .picture {
+  display: inline-block;
+  height: 130px;
+  width: 130px;
+  margin-bottom: 50px;
+  z-index: 1;
+  position: relative;
+}
+
+.our-team .picture::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  bottom: 135%;
+  right: 0;
+  left: 0;
+  opacity: 0.9;
+  transform: scale(3);
+  transition: all 0.3s linear 0s;
+}
+
+.our-team:hover .picture::before {
+  height: 100%;
+}
+
+.our-team .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1369ce;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.our-team .picture img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .picture img {
+  box-shadow: 0 0 0 14px #f7f5ec;
+  transform: scale(0.7);
+}
+
+.our-team .title {
+  display: block;
+  font-size: 15px;
+  color: #4e5052;
+  text-transform: capitalize;
+}
+.team-content{
+  color: #2b2b2b;
+}
+
+  </style>
+
+</head>
+
+<body>
+  <div class="navbar">
+    <nav>
+
+      <ul>
+        <li>
+          <img src="https://ik.imagekit.io/6hbheieoz/image_GXjv8fDg2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652606211319" height="60px" width="140px">
+        </li>
+
+        <li>
+          <a id="a1" href="#">Dashboard</a>
+        </li>
+
+        <li>
+          <a id="a1" href="{%url 'quiz'%}">Daily Quiz</a>
+        </li>
+
+        <li>
+          <a id="a1" href="{%url 'calendar'%}">Workbook Calender</a>
+        </li>
+
+        <li>
+          <a id="a1" href="#">Feedback</a>
+        </li>
+
+        <li>
+
+          <div class="center" id="a1">
+            <input type="checkbox" id="click">
+            <label for="click" class="click-me">Score Card</label>
+            <div class="card">
+              <div class="profile">
+                <h2>Harsh Sharma</h2>
+                <div class="attendance-bar">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="atten_number">
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                    <defs>
+                      <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#005ebc" />
+                        <stop offset="100%" stop-color="#6bb5ff" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="marks-wrapper">
+                <h1>Marks</h1>
+                <p>ITE Term 1 : 100%</p>
+                <p>ITE Term 2 : 100%</p>
+                <p>ITE Term 3 : 100%</p>
+                <p>CRT Term 1 : 100%</p>
+                <p>CRT Term 1 : 100%</p>
+                <p>CRT Term 1 : 100%</p>
+              </div>
+
+            </div>
+          </div>
+
+        </li>
+
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn" type="button"><i class='bx bxs-user'></i>Harsh</button>
+
+            <div class="dropdown-content">
+              <a href="#"><i class='bx bxs-book'></i> &nbsp;My Learning</a>
+              <a href="#"><i class='bx bxs-user-rectangle'></i> &nbsp;Profile</a>
+              <a href="#"><i class='bx bxs-graduation'></i> &nbsp;Grades</a>
+              <a href="{%url 'second'%}"><i class='bx bx-log-out'></i> &nbsp;Log Out</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
+
+  <div class="batch_name">
+    <h2>Batch Name : <span class="auto-type"></span></h2>
+  </div>
+
+
+
+  <div class="module-wrapper">
+    <div class="module1">
+      <input type="checkbox" id="click1">
+      <label for="click1" class="click-me1"><i class='bx bxs-book-bookmark'></i>STANDARD COURSES</label>
+      <div class="module-content">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="our-team">
+                <div class="picture">
+                  <img class="img-fluid" src="https://ik.imagekit.io/g7q35o9sd/image_X0smuq7X8.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652800641873">
+                </div>
+
+                <div class="team-content">
+                  <a href="{%url 'modules'%}"><h3 class="name">COMMUNICATION</h3></a>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="our-team">
+                <div class="picture">
+                  <img class="img-fluid" src="https://ik.imagekit.io/g7q35o9sd/image_VBm4VnRgj.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652804997642">
+                </div>
+                <div class="team-content">
+                  <h3 class="name">COMPUTER ORGANIZATION</h3>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="our-team">
+                <div class="picture">
+                  <img class="img-fluid" src="https://ik.imagekit.io/6hbheieoz/business123__1__npqsKFyFG.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1652808200553">
+                </div>
+                <div class="team-content">
+                  <h3 class="name">BIS</h3>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="our-team">
+                <div class="picture">
+                  <img class="img-fluid" src="https://ik.imagekit.io/6hbheieoz/network_123__1___gbC3AFmj.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1652808355552">
+                </div>
+                <div class="team-content">
+                  <h3 class="name">NETWORKS</h3>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  
+
+  <!--CDN text animation-->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed(".auto-type", {
+      strings: [" Techbee_JFM22_APPS_ABAP_3"],
+      typeSpeed: 120,
+      backSpeed: 120,
+      loop: true
+    });
+  </script>
+
+  <script>
+    let number = document.getElementById("atten_number");
+    let counter = 0;
+    setInterval(() => {
+      if (counter == 65) {
+        clearInterval();
+      } else {
+        counter += 1;
+        number.innerHTML = "Attendance:    " + counter + "%";
+      }
+    }, 155);
+  </script>
+
+</body>
+
+</html>

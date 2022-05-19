@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <title>HCL TRANING & STAFFING SERVICES</title>
+
+            <link rel="icon" href="https://ik.imagekit.io/6hbheieoz/image_bp6nw_BAx.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650704927178">
+            
+
+            <style>
+                *{
+                    box-sizing: border-box;
+                     margin: 0;
+                     padding: 0;   
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.background{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://ik.imagekit.io/6hbheieoz/bgimg_-lfOdJU9h.jfif?ik-sdk-version=javascript-1.4.3&updatedAt=1652606130271");
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -20px;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+.triangle-topleft {
+    margin-top: -65px;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-top: 611px solid #00569c;
+    border-right: 611px solid transparent;
+    z-index: -1;
+}
+.login_box{
+    height: 575px;
+    width: 450px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+.img_div{
+    background-color: #FFF;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}
+.info{
+    background-color: #d9edf7;
+    text-shadow: 1px 0 rgb(255 255 255 / 50%);
+    padding: 10px;
+    color: #3a87ad;
+    border: 2px solid #bce8f1;
+    margin-top: 25px;
+}
+.login_wrapper{
+    background-color: #2b2b2b;
+    height: 300px;
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px;
+}
+label{
+    color: #FFF;
+}
+#box1{
+    height: 45px;
+    width: 390px;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+#box2{
+    margin-top: 10px;
+    height: 45px;
+    width: 390px;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+}
+.btn-wrapper{
+    padding: 1px;
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+.btn-wrapper a{
+    font-style: none;
+    color: #fff;
+    width: 180px;
+    text-decoration: underline;
+}
+#login-btn{
+    height: 40px;
+    width: 180px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background-color: #2b2b2b;
+    border: 2px solid #FFF;
+    color: #fff;
+    font-size:16px;
+    font-weight: 500;
+}
+#login-span{
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #00569c;
+    border-radius: 10px;
+    left: 0;
+    top: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+#login-btn:hover #login-span{
+    width: 100%;
+}
+            </style>
+
+        </head>
+        <body>
+            <div class="background"></div>
+
+                    <div class="triangle-topleft"></div>
+
+
+                    <form action="{% url 'third' logins.id%}" method="post">
+                        {%csrf_token%}
+                        <div class="login_box">
+                            <div class="img_div">
+                                <img src="https://ik.imagekit.io/6hbheieoz/image_GXjv8fDg2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652606211319">
+
+                                <div class="info">
+                                    <p>
+                                        To reset your password, Submit your username or your email address below.
+                                        
+                                    </p>
+                                </div> 
+                            </div>
+
+                            
+
+                            <div class="login_wrapper">
+                                <label for="box1"> New Username : 
+                                    <input type="text" id="box1" value="{{form.username}}">
+                                </label>
+
+                                <label for="box2"> New Password : 
+                                    <input type="text" id="box2" value="{{form.password}}">
+                                </label>
+
+                                <div class="btn-wrapper">
+
+                                    <button id="login-btn" type="submit"><span id="login-span"></span>Submit</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                        
+                    
+
+
+            
+            
+        </body>
+
+    </html>

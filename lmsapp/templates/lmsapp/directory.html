@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>HCL TRANING & STAFFING SERVICES</title>
+
+            <link rel="icon" href="https://ik.imagekit.io/6hbheieoz/image_bp6nw_BAx.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650704927178">
+
+
+
+            
+            <style>
+                *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;   
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.background{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://ik.imagekit.io/6hbheieoz/bgimg_-lfOdJU9h.jfif?ik-sdk-version=javascript-1.4.3&updatedAt=1652606130271");
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    margin-top: -115px;
+}
+.triangle-topleft {
+    margin-top: -100px;
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-top: 611px solid #00569c;
+    border-right: 611px solid transparent;
+    z-index: -1;
+    margin-top: -150px;
+}
+.list-wrapper{
+    background-color: rgb(53, 53, 53);
+    height: 400px;
+    width: 500px;
+    border-radius: 10px;
+    border: 5px ridge white;
+    padding: 15px;
+    color: aliceblue;
+    font-size: 18px;
+    margin-left: 380px;
+    margin-top: 115px;
+}
+.list-wrapper ul{
+    justify-content: space-evenly;
+    text-align: center;
+    display: grid;
+    list-style: none;
+    margin-top: 10px;
+}
+.list-wrapper li{
+    margin-top: 10px;
+}
+.list-wrapper button{
+    height: 35px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+            </style>
+        </head>
+        <body>
+            <div class="background"></div>
+
+                <div class="triangle-topleft"></div>
+
+                <div class="list-wrapper">
+                    <ul>
+                        {%for login in logins%}
+                        <li>
+                            <p>{{login.username}}</p>
+                           <a href="{%url 'third' login.id%}"> <button type="button" >Edit</button></a>
+                         <a href="{%url 'delete' login.id%}">  <button type="button" >Delete</button></a>
+                        </li>
+                        {%endfor%}
+                    </ul>
+                        
+                </div>
+            
+        </body>
+    </html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <title>HCL TRANING & STAFFING SERVICES</title>
+
+            <!--Icons-->
+            <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+            <link rel="icon" href="https://ik.imagekit.io/6hbheieoz/image_bp6nw_BAx.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650704927178">
+            <!--linking CSS-->
+            <style>
+                *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;   
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.background{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://ik.imagekit.io/6hbheieoz/bgimg_-lfOdJU9h.jfif?ik-sdk-version=javascript-1.4.3&updatedAt=1652606130271");
+    position: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+.triangle-topleft {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 611px solid #00569c;
+    border-right: 611px solid transparent;
+    z-index: -1;
+}
+.login_box{
+    height: 420px;
+    width: 400px;
+    margin-top: -490px;
+    margin-left: 90px;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+}
+.img_div{
+    background-color: #FFF;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+}
+.login_wrapper{
+    background-color: #2b2b2b;
+    height: 270px;
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px;
+}
+#box1{
+    height: 45px;
+    width: 340px;
+    padding: 10px;
+    font-size: 17px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+#box2{
+    height: 45px;
+    width: 340px;
+    padding: 10px;
+    font-size: 17px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+}
+.btn-wrapper{
+    padding: 1px;
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+.btn-wrapper a{
+    font-style: none;
+    color: #fff;
+    width: 180px;
+    text-decoration: underline;
+}
+#login-btn{
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    background-color: #2b2b2b;
+    border: 2px solid #FFF;
+    color: #fff;
+    font-size:16px;
+    font-weight: 500;
+}
+#login-span{
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background-color: #00569c;
+    border-radius: 10px;
+    left: 0;
+    top: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+#login-btn:hover #login-span{
+    width: 100%;
+}
+
+.changing_text{
+    width: 65%;
+    margin-left: 580px;
+    margin-top: 300px;
+    font-size: x-large;
+    color: #FFF;
+}
+
+.changing_text p{
+    margin-left: 330px;
+    margin-top: 15px;
+}
+.auto-type{
+    padding: 3px;
+    color: #0084ff;
+    border-radius: 10px;
+    border: 2px solid gray;
+    background-color: rgba(5, 5, 5, 0.3);
+}
+
+
+#heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin-top: -25px;
+    margin-left: 465px;
+}
+#heart:before, #heart:after {
+    position: absolute;
+    content: "";
+    left: 14px;
+    top: 0;
+    width: 15px;
+    height: 25px;
+    background: red;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+            </style>
+           
+
+        </head>
+        <body>
+            <div class="background">
+
+                <div class="triangle-topleft">
+                    <div class="login_box">
+                        <div class="img_div">
+                            <img src="https://ik.imagekit.io/6hbheieoz/image_GXjv8fDg2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652606211319">
+                        </div>
+                        <form method="POST" action="second">
+                        {% csrf_token %}
+                        <div class="login_wrapper">
+                            <label for="second">
+                                <input type="text" placeholder="Username" id="box1" value="{{form.username}}">
+                                </label>
+                                
+                                <label for="second">
+                                <input type="password" placeholder="Password" id="box2" value="{{form.password}}">
+                                </label>
+                            <div class="btn-wrapper">
+
+                                <a href="/directory">Forgotten Username OR Password?</a>
+
+                                <button id="login-btn" type="submit"><span id="login-span"></span>Log In</button>
+                        
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="changing_text">
+                    <h1>" I'm <span class="auto-type"></span> "</h1>
+                    <p>~ Made with <div id="heart"></div></p>
+                </div>
+            </div>
+
+
+            
+            <!--CDN text animation-->
+            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+            <!--Linking JS-->
+            <script>var typed = new Typed(".auto-type", {
+                strings: [" a Techbee Scholar.", "Learning with HCL.", "Exploring Technology."],
+                typeSpeed: 120,
+                backSpeed: 120,
+                loop: true
+            });</script>
+        </body>
+
+    </html>
+    

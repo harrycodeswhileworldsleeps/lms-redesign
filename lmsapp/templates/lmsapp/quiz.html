@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://ik.imagekit.io/6hbheieoz/image_bp6nw_BAx.png?ik-sdk-version=javascript-1.4.3&updatedAt=1650704927178">
+  <title>Daily Quiz</title>
+
+  
+  <style>
+      *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    padding: 20px;
+    background-color: #2b2b2b;
+}
+.container h1{
+    color: aliceblue;
+}
+#displaytimer{
+    color: aliceblue;
+    width: 15%;
+    float: right; 
+    margin-top: -25px;  
+}
+.form-group{
+    background-color: #d9edf7;
+    margin: 20px;
+    margin-left: -0px;
+    padding: 10px;
+    border: 2px solid #bce8f1;
+    color: black;
+}
+.main-wrapper{
+    background-color: #FFF;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.form-check{
+    background-color: #d9edf7;
+    border: 2px solid #bce8f1;
+    padding: 20px;
+    width: 1180px;
+    color: #1f60ec;
+}
+.btn-primary{
+    height: 35px;
+    width: 80px;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    color: black;
+    border: 2px solid #1f60ec;
+}
+#btnspan{
+    position: absolute;
+    height: 31px;
+    width: 0px;
+    background-color: #2b2b2b;
+    left: 0;
+    top: 0;
+    border-radius: 7px;
+    z-index: -1;
+    transition: 0.5s;
+}
+.btn-primary:hover{
+    color: #FFF;
+}
+.btn-primary:hover #btnspan{
+    width: 100%;
+}
+  </style>
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>Daily Quiz</h1>
+     
+    <div align="right" id="displaytimer"><b>Timer: 0 seconds</b></div>
+     
+    <div class="main-wrapper">
+        <form method='post' action="{% url 'result'%}">
+            {% csrf_token %}
+            {% for q  in questions%}
+            <div class="form-group">
+            <label for="question"><b>{{q.question}}</b></label>
+            </div>
+            <div class="form-check1">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="option1">
+                    <label class="form-check-label" for="gridRadios1">
+                        {{q.op1}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="option2">
+                    <label class="form-check-label" for="gridRadios2">
+                        {{q.op2}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios3" value="option3">
+                    <label class="form-check-label" for="gridRadios3">
+                        {{q.op3}}
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios4" value="option4">
+                    <label class="form-check-label" for="gridRadios4">
+                        {{q.op4}}
+                    </label>
+                </div>
+                <br>
+            </div>    
+            {% endfor %}
+            <input id='timer' type='hidden' name="timer" value="">
+            <br>
+            <button type="submit" class="btn btn-primary"><span id="btnspan"></span>Submit</button>
+        </div>
+        </form>
+            {% block script %}
+            <script>
+     
+                console.log('hello world')
+                const timer=document.getElementById('displaytimer')
+                console.log(timer.textContent)
+                const inputtag = document.getElementById('timer')
+     
+                t=0
+                setInterval(()=>{
+                    t+=1
+                    timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
+                    inputtag.value = t
+                },1000)
+            </script>
+        {% endblock script %}
+     
+    </div>
+</body>
+</html>
+    
+  
+      
