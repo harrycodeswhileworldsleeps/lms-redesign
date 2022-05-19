@@ -2,7 +2,9 @@
 A redesign of LMs made using HTML CSS JS Django 
 
 
-[Uvais Ahmed](https://github.com/uvais2929) Frontend
+[Uvais Ahmed](https://github.com/uvais2909) Frontend
+
+
 [Harsh Sharma](https://github.com/harrycodeswhileworldsleeps) Backend
 
 
