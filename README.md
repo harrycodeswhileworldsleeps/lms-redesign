@@ -1,6 +1,11 @@
 # lms-redesign
 A redesign of LMs made using HTML CSS JS Django 
 
+[HCL Techbee Lms](https://hcl-techbee-lms-redesigned.herokuapp.com/)
+
+the above link leads to the app
+
+
 
 [Uvais Ahmed](https://github.com/uvais2909) Frontend
 
